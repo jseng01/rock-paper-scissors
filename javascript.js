@@ -5,6 +5,22 @@ function getComputerChoice(){
 }
 getComputerChoice()
 // Get an input of either rock, paper, or scissors from the user
+function getUserChoice(){
+    selection=prompt("Choose: ROCK, PAPER, or, SCISSORS")
+}
+
+function playerSelection(x,y,z){
+    getUserChoice()
+    selectionUpperCase= selection.toUpperCase()
+    if (selectionUpperCase === "ROCK" || selectionUpperCase === "PAPER" || selectionUpperCase === "SCISSORS"){
+        return
+    }
+    else {
+        console.log("Please select either ROCK, PAPER, OR SCISSORS")
+        getUserChoice()
+    }
+}
+playerSelection()
 // Add a function that will plays a single round of rock paper scissors using the computer generated choice and the user input
 
 // Add a function that loops the round funtion until a best of five game has been decided
