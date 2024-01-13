@@ -33,13 +33,35 @@ function gameRound(){
     let playerChoice = playerSelection()
     if (playerChoice==="ROCK" && gameChoice==="ROCK"){
         console.log("It's a tie! Play again!")
+        gameRound()
     }
     else if (playerChoice==="ROCK" && gameChoice==="SCISSORS"){
              console.log("You win! Rock beats Scissors")
     }
     else if (playerChoice==="ROCK" && gameChoice==="PAPER"){
         console.log("You lose! Paper beats Rock")
-}
+    }
+    else if (playerChoice==="PAPER" && gameChoice==="PAPER"){
+        console.log("It's a tie! Play again!")
+        gameRound()
+    }
+    else if (playerChoice==="PAPER" && gameChoice==="ROCK"){
+        console.log("You win! Paper beats Rock")
+    }
+    else if (playerChoice==="PAPER" && gameChoice==="SCISSORS"){
+        console.log("You lose! Scissors beat paper")
+    }
+    else if (playerChoice==="SCISSORS" && gameChoice==="SCISSORS"){
+        console.log("It's a tie! Play again!")
+        gameRound()
+    }
+    else if (playerChoice==="SCISSORS" && gameChoice==="PAPER"){
+        console.log("You win! Scissors beat paper!")
+    }
+    else if (playerChoice==="SCISSORS" && gameChoice==="ROCK"){
+        console.log("You lose! Rock beats Scissors")
+    }
+
 }
 gameRound()
 // Add a function that loops the round funtion until a best of five game has been decided
