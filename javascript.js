@@ -1,14 +1,14 @@
 let rBtn = document.querySelector('#ROCK');
 rBtn.addEventListener('click', function(){
-capatalizeUserChoice('ROCK');});
+gameRound('R');});
 
 let pBtn = document.querySelector('#PAPER');
 pBtn.addEventListener('click', function(){
-capatalizeUserChoice('PAPER'); });
+gameRound('P'); });
 
 let sBtn = document.querySelector('#SCISSORS');
 sBtn.addEventListener('click', function() {
-    capatalizeUserChoice('SCISSORS'); });
+    gameRound('S'); });
 
 
 function getRandomChoice(){
@@ -16,22 +16,12 @@ function getRandomChoice(){
     let RandomChoice = randomOptions[Math.floor(Math.random()*randomOptions.length)];
     return RandomChoice
 }
-// add a function to randomly return either R, P, or S for rock, paper and scissors
-function capatalizeUserChoice(btn){
-// change user input to uppercase
-    if (btn === "ROCK" || btn === "PAPER" || btn === "SCISSORS"){
-        return capitalUserChoice.slice(0,1)}
-        else {
-            console.log("Please select either ROCK, PAPER, OR SCISSORS")
-        }
-}
-// add a function that verifies that the user input was rock, paper, or scissors
-function gameRound(){
-    let playerOne = capatalizeUserChoice()
+
+function gameRound(playerOne){
+    
     let NPC = getRandomChoice()
     if (playerOne === NPC){
          console.log("It's a tie! Play Again")
-         gameRound()
     }
     else if (playerOne=== "R" && NPC === "P"){
         console.log("You lose! Rock loses to paper!")
