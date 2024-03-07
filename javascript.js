@@ -9,27 +9,7 @@ gameRound('P'); });
 let sBtn = document.querySelector('#SCISSORS');
 sBtn.addEventListener('click', function() {
     gameRound('S'); });
-
-let winCount = 0
-let lossCount = 0
-    
-function game(){ 
-    let result = gameRound;
-    let scoreCard = document.querySelector('#scoreCard');
-    if (winCount < 3 && lossCount <3){
-        scoreCard.textContent = "win count: " + winCount  +" loss count: " + lossCount;}
-    else if(winCount === 3 || lossCount === 3){
-        if (winCount === 3){
-            scoreCard.textContent = "You won the game!"
-            winCount = 0;
-            lossCount = 0;
-        }
-        else if(lossCount === 3){
-            scoreCard.textContent ="You lost the game";
-            lossCount = 0;
-            winCount = 0;
-        }
-    }}
+// these three buttons trigger the gameround function and pass the player selection to it
 
 function getRandomChoice(){
     let randomOptions = ["R", "P", "S"];
@@ -37,7 +17,9 @@ function getRandomChoice(){
     return RandomChoice
 }
 
-
+let winCount = 0
+let lossCount = 0
+    
 function gameRound(playerOne){
     let result = document.querySelector('#gameLog');
     let NPC = getRandomChoice()
@@ -61,25 +43,23 @@ function gameRound(playerOne){
         game();
         
 }
-    
- 
+// determines if round is a win or loss then changes the score accordingly
 
-// add a function containing a series of if else statements, that represent the rules of rock, paper, scissors
-
-// add a function that keeps track of how many wins and losses there are
-
-// function result(){
-//     let finalScore = game()
-//     let wins = finalScore.winCount
-//     let losses = finalScore.lossCount
-//         if(wins === 3){
-//             console.log("Congratulations! You won the game "+ wins +" to "+ losses)
-//         }
-//         else {
-//             console.log("Sorry, you lost this time with a score of " + losses + " to " + wins)
-//         }     
-//     }
-    // add a function that tells you wether you won or lost the game!
-// result()
-
-// rps ui additions
+function game(){ 
+    let result = gameRound;
+    let scoreCard = document.querySelector('#scoreCard');
+    if (winCount < 3 && lossCount <3){
+        scoreCard.textContent = "win count: " + winCount  +" loss count: " + lossCount;}
+    else if(winCount === 3 || lossCount === 3){
+        if (winCount === 3){
+            scoreCard.textContent = "You won the game!"
+            winCount = 0;
+            lossCount = 0;
+        }
+        else if(lossCount === 3){
+            scoreCard.textContent ="You lost the game";
+            lossCount = 0;
+            winCount = 0;
+        }
+    }}
+// keeps score of the game, announces a winner, and resets the score when a winner is decided
