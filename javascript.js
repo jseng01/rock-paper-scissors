@@ -15,20 +15,21 @@ let lossCount = 0
     
 function game(){ 
     let result = gameRound;
+    let scoreCard = document.querySelector('#scoreCard');
     if (winCount < 3 && lossCount <3){
-    console.log("win count: " + winCount);
-    console.log("loss count: " + lossCount);}
+        scoreCard.textContent = "win count: " + winCount  +" loss count: " + lossCount;}
     else if(winCount === 3 || lossCount === 3){
         if (winCount === 3){
-            console.log("You won the game!");
-            winCount = 0
-        }
-        else if(lossCount === 3){
-            console.log("You lost the game");
+            scoreCard.textContent = "You won the game!"
+            winCount = 0;
             lossCount = 0;
         }
-    }
- }
+        else if(lossCount === 3){
+            scoreCard.textContent ="You lost the game";
+            lossCount = 0;
+            winCount = 0;
+        }
+    }}
 
 function getRandomChoice(){
     let randomOptions = ["R", "P", "S"];
