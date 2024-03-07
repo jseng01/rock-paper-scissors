@@ -10,6 +10,25 @@ let sBtn = document.querySelector('#SCISSORS');
 sBtn.addEventListener('click', function() {
     gameRound('S'); });
 
+let winCount = 0
+let lossCount = 0
+    
+function game(){ 
+    let result = gameRound;
+    if (winCount < 3 && lossCount <3){
+    console.log("win count: " + winCount);
+    console.log("loss count: " + lossCount);}
+    else if(winCount === 3 || lossCount === 3){
+        if (winCount === 3){
+            console.log("You won the game!");
+            winCount = 0
+        }
+        else if(lossCount === 3){
+            console.log("You lost the game");
+            lossCount = 0;
+        }
+    }
+ }
 
 function getRandomChoice(){
     let randomOptions = ["R", "P", "S"];
@@ -17,58 +36,35 @@ function getRandomChoice(){
     return RandomChoice
 }
 
+
 function gameRound(playerOne){
-    
+    let result = document.querySelector('#gameLog');
     let NPC = getRandomChoice()
-    if (playerOne === NPC){
-         console.log("It's a tie! Play Again")
+    let winOrLoss = ""
+        if (playerOne === NPC){
+            result.textContent = "It's a tie! Play Again";
+            winOrLoss = "T";
+        }
+        else if ((playerOne=== "R" && NPC === "P") ||
+                 (playerOne=== "S" && NPC === "R") ||
+                 (playerOne=== "P" && NPC === "S")){
+           result.textContent = "You Lose!"
+           lossCount++;
+        }
+        else if((playerOne=== "R" && NPC === "S") ||
+                (playerOne=== "P" && NPC === "R") ||
+                (playerOne=== "S" && NPC === "P")){
+            result.textContent = "You win!";
+            winCount++;
     }
-    else if (playerOne=== "R" && NPC === "P"){
-        console.log("You lose! Rock loses to paper!")
-        return "L"
-    }
-    else if (playerOne=== "R" && NPC === "S"){
-        console.log("You win! Rock beats scissors!")
-        return "W"
-    }
-    else if (playerOne=== "P" && NPC === "S"){
-        console.log("You lose! Paper loses to scissors!")
-        return "L"
-    }
-    else if (playerOne=== "P" && NPC === "R"){
-        console.log("You win! Paper beats rock!")
-        return "W"
-    }
-    else if (playerOne=== "S" && NPC === "R"){
-        console.log("You lose! Scissors lose to Rock")
-        return "L"
-    }
-    else if (playerOne=== "S" && NPC === "P"){
-        console.log("You win! Scissors beat paper!")
-        return "W"
-    }
-    else {
-        gameRound()
-    }
+        game();
+        
 }
+    
+ 
+
 // add a function containing a series of if else statements, that represent the rules of rock, paper, scissors
 
-// function game(){
-//     let winCount = 0
-//     let lossCount = 0
-//     while (winCount < 3 && lossCount < 3){   
-//         let results = gameRound()
-//         if (results === "L"){
-//             lossCount++
-//             console.log("LossCount= " + lossCount)
-//         }
-//         else {
-//             winCount++
-//             console.log("WinCount= " + winCount)
-//         }
-//     }
-//     return {winCount, lossCount}
-// }
 // add a function that keeps track of how many wins and losses there are
 
 // function result(){
